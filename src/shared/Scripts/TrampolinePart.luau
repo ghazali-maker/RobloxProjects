@@ -23,4 +23,3 @@ part.Touched:Connect(function(hit)
 		print("Bounced " .. character.Name)
 	end
 end)
-return module

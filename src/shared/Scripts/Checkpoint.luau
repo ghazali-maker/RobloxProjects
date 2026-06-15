@@ -37,8 +37,10 @@ part.Touched:Connect(function(hit)
 		textLabel.TextTransparency = 0
 		wait(2)
 		screengui:Destroy()
-		module.badgeserver:AwardBadge(game.Players:GetPlayerFromCharacter(character), module.badgeId)
+		game.ReplicatedStorage.Shared.Scripts.Checkpoint.badgeserver:AwardBadge(
+			game.Players:GetPlayerFromCharacter(character),
+			module.badgeId
+		)
 		print("Checkpoint reached by " .. character.Name)
 	end
 end)
-return module

@@ -7,6 +7,7 @@ local module = {
 	moveDirection = Vector3.new(1, 0, 0), -- Move along the X-axis
 	moveSpeed = 5, -- studs per second
 }
+
 local part = module.part
 part.Size = module.size
 part.Position = module.position
@@ -16,7 +17,7 @@ part.BrickColor = module.brickColor
 part.Parent = game.Workspace
 local moveDirection = module.moveDirection -- Move along the X-axis
 local moveSpeed = module.moveSpeed -- studs per second
+
 game:GetService("RunService").Heartbeat:Connect(function(deltaTime)
 	part.Position = part.Position + moveDirection * moveSpeed * deltaTime
 end)
-return module

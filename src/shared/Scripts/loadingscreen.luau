@@ -16,24 +16,15 @@ local module = {
 	textLabelName = "LoadingScreenTextLabel",
 	loadingScreenDuration = 3, -- Duration in seconds for how long the loading screen should be visible
 }
-local screengui = module.screengui
-screengui.Name = "LoadingScreen"
-screengui.Parent = module.textLabelParent
-local textLabel = module.textLabel
-textLabel.Name = module.textLabelName
-textLabel.Size = module.textLabelSize
-textLabel.Position = module.textLabelPosition
-textLabel.BackgroundColor3 = module.backgroundColor
-textLabel.TextColor3 = module.textColor
-textLabel.TextSize = module.textSize
-textLabel.TextTransparency = module.textTransparency
-textLabel.TextStrokeColor3 = module.textStrokeColor
-textLabel.TextStrokeTransparency = module.textStrokeTransparency
-textLabel.BackgroundTransparency = module.textLabelBackgroundTransparency
-textLabel.BorderSizePixel = module.textLabelBorderSizePixel
-textLabel.Text = module.text
-textLabel.Parent = screengui
-task.wait(module.loadingScreenDuration)
-screengui:Destroy()
+
+-- Function to create the loading screen
+local function createLoadingScreen()
+	-- Set up the ScreenGui
+	module.screengui.Name = "LoadingScreen"
+	module.screengui.ResetOnSpawn = false
+	module.screengui.IgnoreGuiInset = true
+	module.screengui.DisplayOrder = 100 -- Ensure it's on top
+	module.screengui.Parent = module.textLabelParent or game.Players.LocalPlayer:WaitForChild("PlayerGui")
+end
 
 return module

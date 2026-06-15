@@ -14,7 +14,10 @@ brick.Anchored = true
 brick.BrickColor = module.brickColor
 brick.Parent = game.Workspace
 local rotationSpeed = module.rotationSpeed -- degrees per second
-game:GetService("RunService").Heartbeat:Connect(function(deltaTime)
-	brick.CFrame = brick.CFrame * CFrame.Angles(0, math.rad(rotationSpeed * deltaTime), 0)
-end)
-return module
+for _, v in (game.Workspace:GetChildren()) do
+	if v:isA("Folder") and v.Name == "Invisible" then
+		game:GetService("RunService").Heartbeat:Connect(function(deltaTime)
+			brick.CFrame = brick.CFrame * CFrame.Angles(0, math.rad(rotationSpeed * deltaTime), 0)
+		end)
+	end
+end

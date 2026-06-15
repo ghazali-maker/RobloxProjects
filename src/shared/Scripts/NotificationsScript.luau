@@ -1,4 +1,5 @@
 local module = { players = game:GetService("Players"), avatarEditorService = game:GetService("AvatarEditorService") }
+
 local Players = module.players
 local Player = Players.LocalPlayer
 local AvatarEditorService = module.avatarEditorService
@@ -11,4 +12,3 @@ while true do
 		AvatarEditorService:PromptSetFavorite(game.PlaceId, Enum.AvatarItemType.Asset, true)
 	end
 end
-return module

@@ -2,13 +2,13 @@ local Players = game:GetService("Players")
 local DataStoreService = game:GetService("DataStoreService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RequestData = ReplicatedStorage.Remotes:WaitForChild("RequestData") -- Change this yo whatever your RemoteFunction was called.
-local DataStore = DataStoreService:GetDataStore("DataStore1") -- Change this to your datastore name.
+local DataStore = DataStoreService:GetDataStore("DataStore") -- Change this to your datastore name.
 local PlayerData = {}
 
 local function getDefaultData()
 	return {
 		-- This is where you outline your default values: For example: "Coins = {Value = 100, ShowOnLeaderboard = true},"
-		Coins = { Value = 0, ShowOnLeaderboard = true },
+		Coins = { Value = 10, ShowOnLeaderboard = true },
 	}
 end
 

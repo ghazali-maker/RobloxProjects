@@ -1,11 +1,20 @@
-local part = Instance.new("Part")
-part.Size = Vector3.new(4, 1, 4)
-part.Position = Vector3.new(0, 5, 0)
+local module = {
+	part = Instance.new("Part"),
+	size = Vector3.new(4, 1, 4),
+	position = Vector3.new(0, 5, 0),
+	name = "Treadmill",
+	brickColor = BrickColor.new("Bright green"),
+	speed = 16,
+}
+
+local part = module.part
+part.Size = module.size
+part.Position = module.position
 part.Anchored = true
-part.BrickColor = BrickColor.new("Bright green")
+part.BrickColor = module.brickColor
 part.Parent = game.Workspace
-part.Name = "Treadmill"
-local speed = 16 -- studs per second
+part.Name = module.name
+local speed = module.speed -- studs per second
 game:GetService("RunService").Heartbeat:Connect(function(deltaTime)
 	for _, character in pairs(game.Workspace:GetChildren()) do
 		if character:IsA("Model") and character:FindFirstChildOfClass("Humanoid") then
@@ -18,3 +27,4 @@ game:GetService("RunService").Heartbeat:Connect(function(deltaTime)
 		end
 	end
 end)
+return module

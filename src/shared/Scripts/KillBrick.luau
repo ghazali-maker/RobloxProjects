@@ -1,12 +1,21 @@
-local part = Instance.new("Part")
-part.Size = Vector3.new(4, 1, 4)
-part.Position = Vector3.new(0, 5, 0)
+local module = {
+	part = Instance.new("Part"),
+	size = Vector3.new(4, 1, 4),
+	position = Vector3.new(0, 5, 0),
+	brickColor = BrickColor.new("Bright red"),
+	explosionRadius = 5,
+	explosionPressure = 50000,
+}
+
+local part = module.part
+part.Size = module.size
+part.Position = module.position
 part.Anchored = true
-part.BrickColor = BrickColor.new("Bright red")
+part.BrickColor = module.brickColor
 part.Parent = game.Workspace
 local explode = Instance.new("Explosion")
-explode.BlastRadius = 5
-explode.BlastPressure = 50000
+explode.BlastRadius = module.explosionRadius
+explode.BlastPressure = module.explosionPressure
 
 local touchCount = 0
 part.Touched:Connect(function(hit)
@@ -26,3 +35,4 @@ part.Touched:Connect(function(hit)
 		explode.Parent = game.Workspace
 	end
 end)
+return module

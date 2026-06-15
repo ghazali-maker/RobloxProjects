@@ -1,14 +1,25 @@
-local part = Instance.new("Part")
-part.Size = Vector3.new(4, 1, 4)
-part.Position = Vector3.new(0, 5, 0)
+local module = {
+	part = Instance.new("Part"),
+	size = Vector3.new(4, 1, 4),
+	position = Vector3.new(0, 5, 0),
+	brickColor = BrickColor.new("Bright red"),
+	transparency = 1,
+	explosionRadius = 5,
+	explosionPressure = 50000,
+	touchCount = 0,
+}
+
+local part = module.part
+part.Size = module.size
+part.Position = module.position
 part.Anchored = true
-part.BrickColor = BrickColor.new("Bright red")
-part.Transparency = 1 -- Make the part invisible
+part.BrickColor = module.brickColor
+part.Transparency = module.transparency
 part.Parent = game.Workspace
 local explode = Instance.new("Explosion")
-explode.BlastRadius = 5
-explode.BlastPressure = 50000
-local touchCount = 0
+explode.BlastRadius = module.explosionRadius
+explode.BlastPressure = module.explosionPressure
+local touchCount = module.touchCount
 part.Touched:Connect(function(hit)
 	local character = hit.Parent
 	local humanoid = character and character:FindFirstChildOfClass("Humanoid")

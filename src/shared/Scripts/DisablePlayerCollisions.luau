@@ -16,13 +16,16 @@ local function HandleCharacterAdded(character)
 		ChangeGroup(part)
 	end
 end
+local module = {}
 
-Players.PlayerAdded:Connect(function(player)
-	player.CharacterAdded:Connect(function(character)
-		HandleCharacterAdded(character)
+function module.NewFunction()
+	Players.PlayerAdded:Connect(function(player)
+		player.CharacterAdded:Connect(function(character)
+			HandleCharacterAdded(character)
 
-		character.ChildAdded:Connect(function(object)
-			ChangeGroup(object)
+			character.ChildAdded:Connect(function(object)
+				ChangeGroup(object)
+			end)
 		end)
 	end)
-end)
+end
